@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andrea Bogoni — Strategic Marketing &amp; Digital Innovation / Switzerland</title>
+<meta name="description" content="CMO and digital strategist based in Lugano, Switzerland. Currently leading marketing and communication at DeepCloud." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0b0a;
+  --bg-2:#111212;
+  --bg-3:#181a19;
+  --ink:#f0f0ec;
+  --ink-soft:#d2d2cd;
+  --muted:#8a8a84;
+  --muted-dim:#4a4a45;
+  --rule:#2a2b2a;
+  --rule-soft:#1e1f1e;
+  --grid:rgba(240,240,236,0.035);
+  --fluo:#d6ff2b;
+  --fluo-dim:#a8c820;
+  --fluo-deep:#8aa918;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  font-family:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);
+  font-weight:400;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"ss01","ss02","tnum";
+  overflow-x:hidden;font-size:17px;letter-spacing:-0.005em;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--fluo);color:var(--bg)}
+
+/* Force monochrome rendering of arrows on iOS/Safari (no emoji style) */
+.arrow{font-family:'JetBrains Mono','Helvetica Neue',Arial,sans-serif;font-variant-emoji:text;-webkit-font-feature-settings:"liga" 0;font-feature-settings:"liga" 0;display:inline-block;font-style:normal;line-height:1;color:inherit}
+.arrow svg{display:inline-block;vertical-align:-0.12em;width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter}
+
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px);background-size:calc(100% / 12) 100%}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.04;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ===== TOPBAR ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:repeat(12,1fr);padding:14px 32px;background:rgba(10,11,10,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.topbar > *{padding:0 12px}
+.tb-id{grid-column:1/4;font-weight:500;color:var(--ink)}
+.tb-id::before{content:'';display:inline-block;width:8px;height:8px;background:var(--fluo);margin-right:10px;vertical-align:middle;box-shadow:0 0 10px var(--fluo);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.tb-loc{grid-column:4/7}
+.tb-time{grid-column:7/10;text-align:center}
+.tb-status{grid-column:10/13;text-align:right}
+.tb-status a{background:var(--fluo);color:var(--bg);padding:4px 10px;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:filter .2s,letter-spacing .2s}
+.tb-status a:hover{filter:brightness(1.1);letter-spacing:0.1em}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:42px;left:0;right:0;z-index:99;padding:16px 32px;display:grid;grid-template-columns:repeat(12,1fr);background:rgba(10,11,10,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);align-items:center}
+.nav-brand{grid-column:1/4;padding:0 12px;font-weight:500;font-size:15px;letter-spacing:-0.01em;color:var(--ink)}
+.nav-brand strong{font-weight:600}
+.nav-brand em{font-style:normal;color:var(--muted)}
+.nav-links{grid-column:4/13;display:flex;gap:30px;list-style:none;padding:0 12px;justify-content:flex-end;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.nav-links a{position:relative;padding:2px 0;transition:color .2s;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--fluo);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(0.77,0,0.175,1)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:1px solid var(--rule);color:var(--ink);padding:7px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer}
+
+.container{position:relative;z-index:2;padding:0 32px}
+
+/* ===== HERO ===== */
+.hero{padding-top:140px;padding-bottom:0;display:grid;grid-template-columns:repeat(12,1fr);border-bottom:1px solid var(--rule);min-height:100vh;position:relative}
+.hero-meta-col{grid-column:1/4;padding:0 12px 40px;border-right:1px solid var(--rule);display:flex;flex-direction:column}
+.hero-meta-col .meta-block{padding:24px 0;border-bottom:1px solid var(--rule-soft)}
+.hero-meta-col .meta-block:last-child{border-bottom:none}
+.meta-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:16px;line-height:1.45;letter-spacing:-0.01em;color:var(--ink)}
+
+.hero-main{grid-column:4/13;padding:0 12px 50px 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.hero-eyebrow{display:flex;gap:18px;align-items:center;margin-bottom:40px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.hero-eyebrow .divider{flex:1;height:1px;background:var(--rule)}
+.hero-eyebrow .num{color:var(--fluo)}
+
+/* TITLE — più contenuto, meno invadente */
+.hero-title{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(44px,7.2vw,124px);line-height:1.02;letter-spacing:-0.04em;margin-bottom:48px;color:var(--ink);padding-bottom:0.1em}
+.hero-title .line{display:block;padding:0.05em 0}
+.hero-title .highlight{background:var(--fluo);color:var(--bg);padding:0 0.12em;margin:0 0.04em;display:inline-block;transform:skewX(-6deg);font-weight:600}
+.hero-title .highlight span{display:inline-block;transform:skewX(6deg)}
+.hero-title .outline{-webkit-text-stroke:1.5px var(--ink);color:transparent;font-weight:400}
+
+.hero-subtitle{display:grid;grid-template-columns:140px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:48px;font-size:17px;line-height:1.65;color:var(--ink-soft)}
+.hero-subtitle .col-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.hero-subtitle p{max-width:760px}
+.hero-subtitle strong{color:var(--ink);font-weight:500}
+.hero-subtitle a.ghost{color:var(--fluo);border-bottom:1px solid var(--fluo-deep);transition:all .2s}
+.hero-subtitle a.ghost:hover{background:var(--fluo);color:var(--bg)}
+
+/* DATASET — padding generoso, no aderenza alle righe */
+.hero-dataset{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}
+.hero-dataset .dp{padding:34px 32px;border-right:1px solid var(--rule-soft)}
+.hero-dataset .dp:first-child{padding-left:0}
+.hero-dataset .dp:last-child{border-right:none;padding-right:0}
+.dp-num{font-family:'Space Grotesk',sans-serif;font-size:60px;font-weight:300;line-height:1;letter-spacing:-0.035em;margin-bottom:14px;color:var(--ink);display:flex;align-items:baseline;gap:6px}
+/* Suffix bilanciato: 24px monospace fluo */
+.dp-num .suffix{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:500;color:var(--fluo);letter-spacing:0.02em;line-height:1}
+.dp-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+
+/* ===== PORTRAIT — pulito, nessuna didascalia ===== */
+.portrait-section{position:relative;z-index:2;border-bottom:1px solid var(--rule);padding:0;background:var(--bg-2);overflow:hidden}
+.portrait-frame{display:grid;grid-template-columns:repeat(12,1fr);min-height:70vh;align-items:stretch}
+.portrait-image{grid-column:1/8;position:relative;overflow:hidden;border-right:1px solid var(--rule);background:#000}
+.portrait-image img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(20%) contrast(1.05);transition:filter .8s ease}
+.portrait-image:hover img{filter:grayscale(0%) contrast(1)}
+.portrait-image::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 60%,rgba(10,11,10,0.45) 100%);pointer-events:none}
+
+.portrait-meta{grid-column:8/13;padding:60px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.portrait-quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,2.4vw,34px);font-weight:400;line-height:1.3;letter-spacing:-0.02em;color:var(--ink)}
+.portrait-quote em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+.portrait-facts{display:grid;border-top:1px solid var(--rule)}
+.portrait-facts .fact{padding:20px 0;border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:baseline}
+.portrait-facts .fact:last-child{border-bottom:none}
+.fact-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.fact-value{font-size:18px;font-weight:500;letter-spacing:-0.015em;color:var(--ink)}
+
+/* ===== SECTION ===== */
+.section{position:relative;z-index:2;padding:0 32px;border-bottom:1px solid var(--rule)}
+.section-header{display:grid;grid-template-columns:repeat(12,1fr);padding:32px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.section-header .sh-num{grid-column:1/4;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.section-header .sh-num .fluo{color:var(--fluo)}
+.section-header .sh-title{grid-column:4/11;padding:0 12px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(32px,4.5vw,64px);line-height:1.02;letter-spacing:-0.035em;color:var(--ink)}
+.section-header .sh-title em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600}
+.section-header .sh-meta{grid-column:11/13;padding:0 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+
+.about-body{display:grid;grid-template-columns:repeat(12,1fr);padding:80px 0}
+.about-lead{grid-column:2/12;padding:0 12px;font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3vw,44px);font-weight:400;line-height:1.3;letter-spacing:-0.025em;margin-bottom:80px;color:var(--ink)}
+.about-lead em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+.about-detail-grid{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid var(--rule)}
+.about-cell{grid-column:span 4;padding:36px 16px;border-right:1px solid var(--rule)}
+.about-cell:last-child{border-right:none}
+.about-cell h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.about-cell p{font-size:16px;line-height:1.7;color:var(--ink-soft)}
+.about-cell a{color:var(--fluo);border-bottom:1px solid var(--fluo-deep);transition:all .2s}
+.about-cell a:hover{background:var(--fluo);color:var(--bg)}
+
+/* CAREER — location allineata a destra precisa */
+.career-head{display:grid;grid-template-columns:70px 150px 1fr 140px;padding:18px 16px;border-bottom:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);gap:32px}
+.career-head > *:last-child{text-align:right}
+.job-row{display:grid;grid-template-columns:70px 150px 1fr 140px;padding:38px 16px;border-bottom:1px solid var(--rule-soft);gap:32px;align-items:start;transition:background .3s;position:relative}
+.job-row:last-child{border-bottom:none}
+.job-row:hover{background:var(--bg-2)}
+.job-row:hover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--fluo);box-shadow:0 0 14px var(--fluo)}
+.job-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);padding-top:4px}
+.job-period{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--ink-soft);padding-top:4px;line-height:1.5}
+.job-period .current{display:inline-block;background:var(--fluo);color:var(--bg);padding:3px 8px;margin-top:8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
+.job-main h3{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:500;line-height:1.25;letter-spacing:-0.015em;margin-bottom:6px;color:var(--ink)}
+.job-company{font-size:15px;color:var(--muted);margin-bottom:18px}
+.job-company a{color:var(--ink-soft);border-bottom:1px dotted var(--muted-dim);transition:all .2s}
+.job-company a:hover{color:var(--fluo);border-bottom-color:var(--fluo)}
+.job-desc{font-size:15.5px;line-height:1.7;color:var(--ink-soft);max-width:700px}
+.job-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.job-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-soft)}
+.job-loc{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;color:var(--muted);text-align:right;padding-top:4px;line-height:1.5}
+
+/* ===== PROJECTS — placeholder + gallery ready ===== */
+.project-row{padding:80px 0;border-bottom:1px solid var(--rule);position:relative}
+.project-row:last-child{border-bottom:none}
+.project-header{display:grid;grid-template-columns:repeat(12,1fr);margin-bottom:40px;align-items:end}
+.project-label{grid-column:1/4;padding:0 12px;display:flex;align-items:center;gap:16px}
+.pl-num{font-family:'Space Grotesk',sans-serif;font-size:72px;font-weight:300;line-height:0.85;letter-spacing:-0.04em;color:var(--ink)}
+.pl-num sup{font-family:'JetBrains Mono',monospace;font-size:13px;top:-3em;color:var(--muted);letter-spacing:0.08em;margin-left:4px}
+.pl-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;background:var(--fluo);color:var(--bg);font-weight:500}
+.project-title-wrap{grid-column:4/11;padding:0 12px}
+.project-title-wrap h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,5vw,80px);font-weight:500;line-height:0.95;letter-spacing:-0.04em;color:var(--ink);padding-bottom:0.08em}
+.project-title-wrap h3 em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600}
+.project-year{grid-column:11/13;padding:0 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+
+/* GALLERY — slot prepared, slides container */
+.project-gallery{position:relative;width:100%;aspect-ratio:16/8;overflow:hidden;background:var(--bg-3);border:1px solid var(--rule);margin-bottom:50px}
+.gallery-track{display:flex;width:100%;height:100%;transition:transform .5s cubic-bezier(0.65,0,0.35,1)}
+.gallery-slide{flex:0 0 100%;width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* Placeholder elegante: gradient + numero + label */
+.gallery-slide.placeholder{background:linear-gradient(135deg,#181a19 0%,#0f1010 50%,#181a19 100%);position:relative}
+.gallery-slide.placeholder::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,rgba(214,255,43,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(214,255,43,0.04) 1px,transparent 1px);background-size:60px 60px}
+.gallery-slide.placeholder::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border:1px solid var(--rule);border-left-color:var(--fluo);border-top-color:var(--fluo);opacity:0.4}
+.placeholder-meta{position:relative;z-index:2;text-align:center;font-family:'JetBrains Mono',monospace;color:var(--muted)}
+.placeholder-meta .ph-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:14px;color:var(--fluo)}
+.placeholder-meta .ph-num{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:300;letter-spacing:-0.03em;color:var(--ink-soft);margin-bottom:8px}
+.placeholder-meta .ph-cap{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+
+.gallery-slide img{width:100%;height:100%;object-fit:cover}
+
+/* Gallery controls */
+.gallery-controls{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:16px;background:rgba(10,11,10,0.7);backdrop-filter:blur(10px);padding:10px 16px;border:1px solid var(--rule)}
+.gallery-arrow{background:transparent;border:none;color:var(--ink);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;padding:4px 8px;transition:color .2s;display:inline-flex;align-items:center;justify-content:center}
+.gallery-arrow .arrow{font-size:16px}
+.gallery-arrow:hover{color:var(--fluo)}
+.gallery-arrow:disabled{color:var(--muted-dim);cursor:not-allowed}
+.gallery-dots{display:flex;gap:8px}
+.gallery-dot{width:8px;height:8px;background:var(--muted-dim);border:none;cursor:pointer;padding:0;transition:all .2s}
+.gallery-dot.active{background:var(--fluo);box-shadow:0 0 8px var(--fluo)}
+.gallery-counter{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;min-width:50px;text-align:center}
+
+.project-content{display:grid;grid-template-columns:repeat(12,1fr)}
+.project-text{grid-column:1/9;padding:0 12px}
+.project-lead{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,2.2vw,28px);line-height:1.35;color:var(--ink);margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--rule);font-weight:500;letter-spacing:-0.015em;max-width:820px}
+.project-desc{font-size:17px;line-height:1.7;color:var(--ink-soft);margin-bottom:24px;max-width:780px}
+.project-desc strong{color:var(--ink);font-weight:500}
+.project-quote{font-size:16px;line-height:1.7;padding:24px 28px;border-left:3px solid var(--fluo);background:rgba(214,255,43,0.05);color:var(--ink);margin-bottom:28px;font-style:italic;max-width:820px}
+.project-quote strong{display:block;margin-top:14px;font-weight:500;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-style:normal}
+
+.project-specs{grid-column:10/13;padding:0 12px;font-family:'JetBrains Mono',monospace}
+.spec-row{padding:14px 0;border-bottom:1px solid var(--rule)}
+.spec-row:first-child{border-top:1px solid var(--rule)}
+.spec-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.spec-value{font-size:12px;color:var(--ink);letter-spacing:0.02em;line-height:1.5}
+.spec-links{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.spec-links a{display:block;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--rule);transition:all .2s;text-align:center;color:var(--ink-soft)}
+.spec-links a:hover{background:var(--fluo);border-color:var(--fluo);color:var(--bg)}
+.spec-links a{display:flex;align-items:center;justify-content:center;gap:8px}.spec-links a .arrow{font-size:0.95em}
+
+/* EDUCATION — 4 items, 2x2 + wide */
+.edu-grid{display:grid;grid-template-columns:repeat(12,1fr)}
+.edu-item{grid-column:span 6;padding:44px 24px;border-right:1px solid var(--rule);border-top:1px solid var(--rule);transition:background .3s;position:relative}
+.edu-item:hover{background:var(--bg-2)}
+.edu-item.wide{grid-column:span 12;border-right:none}
+.edu-item:nth-child(2n){border-right:none}
+.edu-year-big{font-family:'Space Grotesk',sans-serif;font-size:72px;font-weight:300;line-height:0.9;letter-spacing:-0.04em;margin-bottom:28px;position:relative;display:inline-block;color:var(--ink);padding-bottom:8px}
+.edu-year-big::after{content:'';position:absolute;left:0;bottom:0;width:40%;height:3px;background:var(--fluo);box-shadow:0 0 10px var(--fluo)}
+.edu-school{font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.015em;margin-bottom:14px;color:var(--ink)}
+.edu-desc{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:22px}
+.edu-links{display:flex;gap:10px;flex-wrap:wrap}
+.edu-link{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--rule);transition:all .2s;color:var(--ink-soft)}
+.edu-link:hover{background:var(--fluo);border-color:var(--fluo);color:var(--bg)}
+.edu-link{display:inline-flex;align-items:center;gap:8px}.edu-link .arrow{font-size:0.9em}
+
+/* SKILLS */
+.skills-matrix{display:grid;grid-template-columns:repeat(12,1fr)}
+.skill-block{grid-column:span 3;padding:40px 24px;border-right:1px solid var(--rule);border-top:1px solid var(--rule)}
+.skill-block:nth-child(4n){border-right:none}
+.skill-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.skill-header .sk-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--fluo)}
+.skill-header h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;letter-spacing:-0.005em;text-transform:uppercase;color:var(--ink)}
+.skill-list{list-style:none}
+.skill-list li{font-size:15px;padding:11px 0;border-bottom:1px dashed var(--rule);display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--ink-soft);line-height:1.4}
+.skill-list li:last-child{border-bottom:none}
+.skill-list li .right{display:flex;align-items:center;gap:10px}
+.skill-list li .dot{width:7px;height:7px;background:var(--fluo-deep);opacity:0.55;flex-shrink:0;border-radius:50%}
+.skill-list li.pro{color:var(--ink);font-weight:500}
+.skill-list li.pro .dot{background:var(--fluo);opacity:1;box-shadow:0 0 8px var(--fluo)}
+.skill-list li a{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--rule);padding:3px 7px;transition:all .2s}
+.skill-list li a:hover{background:var(--fluo);border-color:var(--fluo);color:var(--bg)}
+
+/* PROFILE */
+.profile-body{display:grid;grid-template-columns:repeat(12,1fr);padding:80px 0 0}
+.profile-statements{grid-column:1/9;padding:0 12px}
+.profile-statement{display:grid;grid-template-columns:70px 1fr;gap:24px;padding:36px 0;border-top:1px solid var(--rule);align-items:start}
+.profile-statement:last-child{border-bottom:1px solid var(--rule)}
+.ps-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--fluo);padding-top:10px}
+.ps-text{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,2.2vw,30px);font-weight:400;line-height:1.4;letter-spacing:-0.02em;color:var(--ink)}
+.ps-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+
+/* MUSIC EASTER EGG */
+.music-trigger{font-style:normal;color:var(--fluo);border-bottom:1px dashed var(--fluo-deep);cursor:pointer;transition:all .2s;padding:0 2px;font-weight:500;display:inline-block}
+.music-trigger:hover{background:rgba(214,255,43,0.1)}
+.music-trigger.active{background:var(--fluo);color:var(--bg);border-bottom-color:transparent}
+.music-trigger::before{content:'♪ ';font-size:0.85em;letter-spacing:0;margin-right:2px}
+.music-panel{margin-top:24px;border:1px solid var(--rule);background:var(--bg-2);overflow:hidden;max-height:0;transition:max-height .6s cubic-bezier(0.4,0,0.2,1),opacity .4s ease,margin-top .4s ease;opacity:0}
+.music-panel.open{max-height:1600px;opacity:1}
+.music-panel-header{padding:16px 20px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);gap:12px;flex-wrap:wrap}
+.music-panel-header .mp-title{color:var(--ink);display:flex;align-items:center;gap:10px}
+.music-panel-header .mp-title::before{content:'';display:inline-block;width:6px;height:6px;background:var(--fluo);box-shadow:0 0 8px var(--fluo);flex-shrink:0;animation:blink 2s infinite}
+.music-panel-close{background:none;border:1px solid var(--rule);color:var(--muted);cursor:pointer;font-family:inherit;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;transition:all .2s;flex-shrink:0}
+.music-panel-close:hover{color:var(--fluo);border-color:var(--fluo)}
+
+.music-tracks{padding:16px;display:grid;gap:12px}
+.music-card{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:18px;padding:18px 20px;border:1px solid var(--rule-soft);background:var(--bg-3);text-decoration:none;color:inherit;transition:all .25s ease;position:relative;overflow:hidden}
+.music-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--fluo);transition:width .25s ease;z-index:0}
+.music-card:hover{border-color:var(--fluo);background:var(--bg-2)}
+.music-card:hover::before{width:3px;box-shadow:0 0 12px var(--fluo)}
+.music-card > *{position:relative;z-index:1}
+
+.mc-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--fluo);font-weight:500}
+.mc-info{min-width:0;display:flex;flex-direction:column;gap:4px}
+.mc-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500;letter-spacing:-0.015em;line-height:1.25;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc-meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc-meta .artist{color:var(--ink-soft)}
+
+.mc-play{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);transition:all .2s;flex-shrink:0;white-space:nowrap}
+.mc-card:hover .mc-play,.music-card:hover .mc-play{background:var(--fluo);color:var(--bg);border-color:var(--fluo)}
+.mc-play .play-icon{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor;display:inline-block}
+
+@media (max-width:600px){
+  .music-panel-header{padding:14px 16px;font-size:9px}
+  .music-tracks{padding:12px;gap:10px}
+  .music-card{grid-template-columns:28px 1fr auto;gap:12px;padding:14px 16px}
+  .mc-title{font-size:16px;white-space:normal}
+  .mc-meta{font-size:9px}
+  .mc-play{padding:8px 10px;font-size:9px;gap:6px}
+  .mc-play .label{display:none}
+}
+
+.profile-card{grid-column:9/13;padding:0 12px 0 40px;border-left:1px solid var(--rule)}
+.pc-block{padding:26px 0;border-bottom:1px solid var(--rule)}
+.pc-block:first-child{padding-top:0}
+.pc-block:last-child{border-bottom:none}
+.pc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pc-value{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.015em;transition:all .2s;display:inline-block;color:var(--ink);line-height:1.25;word-break:break-word}
+.pc-value.small{font-size:17px}
+.pc-value.email{font-size:clamp(14px,1.4vw,18px);letter-spacing:-0.01em;word-break:break-all}
+.pc-value:hover{background:var(--fluo);color:var(--bg);padding:0 4px;margin:0 -4px}
+
+/* QUOTE */
+.quote-block{padding:140px 32px;border-bottom:1px solid var(--rule);position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,1fr);overflow:hidden}
+.quote-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--fluo),transparent);box-shadow:0 0 24px var(--fluo)}
+.quote-inner{grid-column:2/12;padding:0 12px}
+.quote-inner .q-mark{font-family:'Space Grotesk',sans-serif;font-size:160px;line-height:1;color:var(--fluo);font-weight:600;display:block;text-shadow:0 0 30px rgba(214,255,43,0.3);margin-bottom:10px}
+.quote-text{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,5vw,72px);font-weight:400;line-height:1.3;letter-spacing:-0.035em;margin-bottom:40px;color:var(--ink);padding-bottom:0.2em}
+.quote-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.08em 0.12em;font-weight:500;display:inline-block;line-height:1;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.quote-cite{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+
+/* FOOTER */
+.footer{padding:50px 32px;background:#050605;color:var(--ink);position:relative;z-index:2;border-top:1px solid var(--rule)}
+.footer-grid{display:grid;grid-template-columns:repeat(12,1fr);align-items:center}
+.footer-grid > *{padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.footer-grid > *:not(:last-child){border-right:1px solid var(--rule)}
+.f-copy{grid-column:1/4;color:var(--ink-soft)}
+.f-contact{grid-column:4/9}
+.f-contact a{color:var(--ink-soft);border-bottom:1px solid var(--rule);transition:all .2s}
+.f-contact a:hover{border-bottom-color:var(--fluo);color:var(--fluo)}
+.f-version{grid-column:9/11;text-align:center}
+.f-top{grid-column:11/13;text-align:right}
+.f-top a{transition:color .2s;color:var(--ink-soft)}
+.f-top a:hover{color:var(--fluo)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(0.33,1,0.68,1),transform .8s cubic-bezier(0.33,1,0.68,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media (max-width:1200px){
+  .hero-dataset{grid-template-columns:repeat(2,1fr)}
+  .hero-dataset .dp{padding:28px 24px}
+  .hero-dataset .dp:nth-child(1){padding-left:0}
+  .hero-dataset .dp:nth-child(2){border-right:none;padding-right:0}
+  .hero-dataset .dp:nth-child(3){padding-left:0;border-right:1px solid var(--rule-soft)}
+  .hero-dataset .dp:nth-child(4){padding-right:0}
+  .hero-dataset .dp:nth-child(1),.hero-dataset .dp:nth-child(2){border-bottom:1px solid var(--rule-soft)}
+  .portrait-frame{grid-template-columns:1fr}
+  .portrait-image{grid-column:1;border-right:none;border-bottom:1px solid var(--rule);min-height:60vh}
+  .portrait-meta{grid-column:1;padding:40px 32px}
+}
+@media (max-width:1000px){
+  .project-content{grid-template-columns:1fr}
+  .project-text,.project-specs{grid-column:1;padding:0 12px}
+  .project-specs{margin-top:30px}
+  .spec-row:first-child{border-top:1px solid var(--rule)}
+}
+@media (max-width:900px){
+  body{font-size:16px}
+  .grid-bg{display:none}
+  .topbar{grid-template-columns:1fr auto;gap:8px;padding:10px 14px}
+  .tb-id{grid-column:1/2;font-size:10px}
+  .tb-loc,.tb-time{display:none}
+  .tb-status{grid-column:2/3;text-align:right}
+  .tb-status a{padding:5px 10px;font-size:10px}
+  .nav{top:38px;grid-template-columns:1fr auto;padding:12px 14px}
+  .nav-brand{grid-column:1/2;font-size:14px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:88px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--rule);padding:20px;gap:16px;justify-content:flex-start;grid-column:1/3}
+  .menu-btn{display:block;justify-self:end}
+  .container,.section,.quote-block,.footer{padding-left:16px;padding-right:16px}
+  .hero{grid-template-columns:1fr;padding-top:110px}
+  .hero-meta-col{grid-column:1;border-right:none;border-bottom:1px solid var(--rule);padding:0 0 10px;display:grid;grid-template-columns:1fr 1fr}
+  .hero-meta-col .meta-block{padding:16px;border-bottom:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft)}
+  .hero-meta-col .meta-block:nth-child(2n){border-right:none}
+  .hero-main{grid-column:1;padding:50px 0 50px}
+  .hero-subtitle{grid-template-columns:1fr;gap:14px}
+  .hero-dataset{grid-template-columns:1fr 1fr}
+  .portrait-image{min-height:50vh}
+  .portrait-meta{padding:32px 16px}
+  .section-header{grid-template-columns:1fr;gap:16px}
+  .section-header .sh-num,.section-header .sh-title,.section-header .sh-meta{grid-column:1;padding:0;text-align:left}
+  .career-head{display:none}
+  .job-row{grid-template-columns:1fr;gap:12px;padding:28px 0}
+  .job-num,.job-loc{text-align:left}
+  .about-body{padding:40px 0}
+  .about-lead{grid-column:1/13;padding:0;font-size:22px;line-height:1.35;margin-bottom:40px}
+  .about-cell{grid-column:span 12;border-right:none;border-bottom:1px solid var(--rule-soft);padding:28px 0}
+  .project-row{padding:50px 0}
+  .project-header{margin-bottom:30px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .project-label,.project-title-wrap,.project-year{padding:0;text-align:left;width:100%}
+  .pl-num{font-size:48px}
+  .project-title-wrap h3{font-size:36px;line-height:1}
+  .project-gallery{aspect-ratio:16/10;margin-bottom:24px}
+  .gallery-controls{bottom:12px;padding:8px 12px;gap:12px}
+  .gallery-arrow{font-size:13px;padding:2px 6px}
+  .gallery-counter{font-size:9px;min-width:42px}
+  .edu-item{grid-column:span 12;border-right:none;padding:30px 0;border-top:1px solid var(--rule-soft)}
+  .edu-item.wide{padding:30px 0}
+  .edu-year-big{font-size:56px;margin-bottom:20px}
+  .edu-school{font-size:18px}
+  .skill-block{grid-column:span 6;padding:24px 16px}
+  .skill-block:nth-child(2n){border-right:none}
+  .skill-list li{font-size:14px;padding:9px 0}
+  .profile-body{padding:40px 0}
+  .profile-statements,.profile-card{grid-column:1/13;padding:0;border-left:none}
+  .profile-statement{grid-template-columns:50px 1fr;gap:16px;padding:24px 0}
+  .ps-text{font-size:20px}
+  .profile-card{margin-top:40px;padding-top:40px;border-top:1px solid var(--rule)}
+  .quote-block{padding:60px 16px}
+  .quote-inner{grid-column:1/13;padding:0}
+  .quote-inner .q-mark{font-size:80px;margin-bottom:0}
+  .quote-text{font-size:34px;margin-bottom:24px}
+  .footer-grid{grid-template-columns:1fr;gap:8px}
+  .footer-grid > *{padding:10px 0;border-right:none;border-bottom:1px solid var(--rule)}
+  .footer-grid > *:last-child{border-bottom:none}
+  .f-copy,.f-contact,.f-version,.f-top{grid-column:1;text-align:left}
+}
+@media (max-width:600px){
+  .skill-block{grid-column:span 12;border-right:none;padding:22px 0;border-top:1px solid var(--rule-soft)}
+  .hero-dataset{grid-template-columns:1fr}
+  .hero-dataset .dp{border-right:none !important;border-bottom:1px solid var(--rule-soft);padding:20px 0 !important}
+  .hero-meta-col{grid-template-columns:1fr}
+  .hero-meta-col .meta-block{border-right:none}
+  .topbar{padding:9px 12px}
+  .tb-id{font-size:9px}
+  .tb-status a{padding:4px 8px;font-size:9px}
+  .hero-title{font-size:48px;line-height:1.04}
+  .pc-value{font-size:18px}
+  .pc-value.email{font-size:14px}
+  .pc-value.small{font-size:15px}
+  .project-title-wrap h3{font-size:30px}
+  .pl-num{font-size:40px}
+  .project-lead{font-size:20px}
+  .quote-text{font-size:28px;line-height:1.3}
+  .quote-inner .q-mark{font-size:64px}
+  .ps-text{font-size:18px}
+  .profile-statement{grid-template-columns:1fr;gap:6px}
+  .ps-num{padding-top:0}
+}
+@media (max-width:380px){
+  .hero-meta-col{grid-template-columns:1fr}
+  .topbar{grid-template-columns:auto 1fr}
+  .tb-id{display:none}
+  .tb-status{grid-column:1/3}
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="noise"></div>
+
+<div class="topbar">
+  <div class="tb-id">Portfolio · 2026</div>
+  <div class="tb-loc">Lugano · Switzerland</div>
+  <div class="tb-time" id="clock">— : — CET</div>
+  <div class="tb-status"><a href="#profile">● Get in touch</a></div>
+</div>
+
+<nav class="nav">
+  <div class="nav-brand">Andrea <strong>Bogoni</strong></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="https://www.ad-diction.me/" target="_blank"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span> Blog</a></li>
+  </ul>
+  <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
+</nav>
+
+<section class="hero container" id="home">
+  <div class="hero-meta-col">
+    <div class="meta-block"><div class="meta-label">Role</div><div class="meta-value">Chief Marketing Officer</div></div>
+    <div class="meta-block"><div class="meta-label">Organisation</div><div class="meta-value">DeepCloud · Abacus Research</div></div>
+    <div class="meta-block"><div class="meta-label">Discipline</div><div class="meta-value">Brand · Digital · AI Marketing · Go-to-market</div></div>
+    <div class="meta-block"><div class="meta-label">Since</div><div class="meta-value">2022 — Active</div></div>
+  </div>
+  <div class="hero-main">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="num">01</span>
+        <span class="divider"></span>
+        <span>Portfolio &amp; Curriculum Vitæ</span>
+        <span class="divider"></span>
+        <span>Edition 2026</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line">Strategic</span>
+        <span class="line">Marketing <span class="highlight"><span>&amp;</span></span></span>
+        <span class="line"><span class="outline">Digital</span> Innovation.</span>
+      </h1>
+      <div class="hero-subtitle">
+        <div class="col-label">Summary</div>
+        <p>CMO and digital strategist with a solid track record in building marketing functions, managing transformation projects, and delivering innovation across communication and product ecosystems. Currently leading marketing and communication at <strong>DeepCloud</strong>, a Swiss tech company delivering AI-powered cloud services. Background includes international experience with brands such as <a class="ghost" href="https://leica-geosystems.com/" target="_blank">Leica Geosystems</a>, <a class="ghost" href="https://www.samsung.com/it/" target="_blank">Samsung</a> and <a class="ghost" href="https://www.ducati.com/" target="_blank">Ducati</a>.</p>
+      </div>
+    </div>
+    <div class="hero-dataset">
+      <div class="dp"><div class="dp-num">20<span class="suffix">yr</span></div><div class="dp-label">Years in digital<br>marketing</div></div>
+      <div class="dp"><div class="dp-num">10<span class="suffix">+</span></div><div class="dp-label">AI-powered cloud<br>products launched</div></div>
+      <div class="dp"><div class="dp-num">9</div><div class="dp-label">International<br>brands served</div></div>
+      <div class="dp"><div class="dp-num">5</div><div class="dp-label">Specialists currently<br>on the team</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="portrait-section">
+  <div class="portrait-frame">
+    <div class="portrait-image">
+      <img src="https://images.squarespace-cdn.com/content/v1/58b0984f20099e71f22d9260/1680445145642-OWIW3PW17IVVCCV24M2O/Website_Resume_Portrait_Image_2048x943.jpg" alt="Andrea Bogoni" loading="lazy">
+    </div>
+    <div class="portrait-meta">
+      <p class="portrait-quote">Building <em>marketing functions</em> from scratch, shaping <em>digital ecosystems</em>, and bringing strategic clarity to complex technology products.</p>
+      <div class="portrait-facts">
+        <div class="fact"><div class="fact-label">Name</div><div class="fact-value">Andrea Bogoni</div></div>
+        <div class="fact"><div class="fact-label">Role</div><div class="fact-value">CMO · Digital Strategist</div></div>
+        <div class="fact"><div class="fact-label">Based in</div><div class="fact-value">Lugano, Switzerland</div></div>
+        <div class="fact"><div class="fact-label">Contact</div><div class="fact-value">andreabogoni@proton.me</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 01 · About</div>
+    <h2 class="sh-title">A <em>CMO</em> working at the intersection of brand and <em>deep tech</em>.</h2>
+    <div class="sh-meta">Lugano<br>Switzerland</div>
+  </div>
+  <div class="about-body">
+    <p class="about-lead reveal">For the last four years I have been leading marketing at <em>DeepCloud</em> — an interdisciplinary team focused on positioning, engagement and growth in a highly competitive B2B tech environment. Before that, I worked across international brands including Leica Geosystems, Samsung and Ducati, building and delivering digital strategies that move products forward.</p>
+    <div class="about-detail-grid reveal">
+      <div class="about-cell"><h4>Based in</h4><p>Lugano, Ticino — Switzerland. Working across the Swiss, Italian and global markets.</p></div>
+      <div class="about-cell"><h4>Focus areas</h4><p>Brand strategy, go-to-market, digital ecosystems, AI-driven content workflows, team leadership, marketing analytics.</p></div>
+      <div class="about-cell"><h4>Get in touch</h4><p><a href="tel:+41765750583">+41 76 575 05 83</a><br><a href="mailto:andreabogoni@proton.me">andreabogoni@proton.me</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="career">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 02 · Career</div>
+    <h2 class="sh-title">Twenty years of <em>work</em>, documented.</h2>
+    <div class="sh-meta">11 positions<br>2005 — Ongoing</div>
+  </div>
+  <div class="career-head">
+    <div>Ref.</div><div>Period</div><div>Position &amp; organisation</div><div>Location</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">01</div>
+    <div class="job-period">2022 — Today<br><span class="current">Active</span></div>
+    <div class="job-main">
+      <h3>Chief Marketing Officer</h3>
+      <div class="job-company"><a href="https://www.deepcloud.swiss/en/" target="_blank">DeepCloud · Abacus Research <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Appointed to build and lead the marketing and communication function from scratch, defining the strategic direction and assembling a team of five specialists. Directed the go-to-market strategy and ongoing promotion of 10+ AI-powered cloud products in a highly competitive B2B tech environment. Helped position DeepCloud as a Swiss alternative to global big tech, with strong emphasis on digital sovereignty, data protection and enterprise efficiency.</p>
+      <div class="job-tags"><span class="job-tag">CMO</span><span class="job-tag">B2B Tech</span><span class="job-tag">AI</span><span class="job-tag">Brand</span></div>
+    </div>
+    <div class="job-loc">Lugano<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">02</div>
+    <div class="job-period">2024 — Today<br><span class="current">Active</span></div>
+    <div class="job-main">
+      <h3>Media Strategy and Planning Lead</h3>
+      <div class="job-company"><a href="https://www.abacus.ch/en/" target="_blank">Abacus Research AG <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Overseeing Abacus' media strategy and planning to ensure data-informed, cohesive campaigns. Managing one direct report and fostering collaboration across teams to deliver consistent, high-impact brand communication. Abacus Research is the Swiss ERP market leader.</p>
+      <div class="job-tags"><span class="job-tag">Media</span><span class="job-tag">Strategy</span><span class="job-tag">Planning</span></div>
+    </div>
+    <div class="job-loc">Lugano<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">03</div>
+    <div class="job-period">2025 — Today<br><span class="current">Active</span></div>
+    <div class="job-main">
+      <h3>Lecturer in Marketing Analytics</h3>
+      <div class="job-company"><a href="https://sicticino.ch/" target="_blank">SIC Ticino <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Lecturer in analytics for a cantonally recognised digital marketing course at SIC Ticino, Switzerland's longest-standing professional school in the commercial sector. Designing and delivering hands-on modules focused on transforming complex marketing data into actionable insights.</p>
+      <div class="job-tags"><span class="job-tag">Teaching</span><span class="job-tag">Analytics</span></div>
+    </div>
+    <div class="job-loc">Bellinzona<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">04</div>
+    <div class="job-period">2019 — 2021</div>
+    <div class="job-main">
+      <h3>Head of Marketing &amp; Communication</h3>
+      <div class="job-company"><a href="https://www.paganipens.com/" target="_blank">Pagani Pens <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">In charge of marketing and communication, leading a team of six senior professionals. Managed all group brands through a fully digitalised strategy. Initiated and led the development of Cloud Pens — a progressive web app connecting physical products to dynamic campaign pages — conceived as a SaaS model and successfully launched under my leadership.</p>
+      <div class="job-tags"><span class="job-tag">Head of</span><span class="job-tag">SaaS</span><span class="job-tag">PWA</span></div>
+    </div>
+    <div class="job-loc">Lugano<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">05</div>
+    <div class="job-period">2018 — 2019</div>
+    <div class="job-main">
+      <h3>Digital Project Manager</h3>
+      <div class="job-company"><a href="https://leica-geosystems.com/" target="_blank">Leica Geosystems · Hexagon <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Managed strategic digital marketing projects to support product launches and global campaigns in the geospatial technology sector. Coordinated the web launch of key product lines — laser scanners and UAV systems — aligning UX, content and performance with Hexagon's global standards.</p>
+      <div class="job-tags"><span class="job-tag">UX</span><span class="job-tag">Product Launch</span></div>
+    </div>
+    <div class="job-loc">Zug<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">06</div>
+    <div class="job-period">2011 — 2018</div>
+    <div class="job-main">
+      <h3>Digital Marketing Manager</h3>
+      <div class="job-company"><a href="https://www.prodir.com/en" target="_blank">Prodir <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Led digital marketing activities for the Swiss manufacturer of high-end promotional writing instruments. Oversaw all digital touchpoints including websites, online campaigns, marketing automation, blog and social media. Managed cross-functional projects from concept to delivery.</p>
+      <div class="job-tags"><span class="job-tag">Manager</span><span class="job-tag">Automation</span></div>
+    </div>
+    <div class="job-loc">Lugano<br>Switzerland</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">07</div>
+    <div class="job-period">2010 — 2011</div>
+    <div class="job-main">
+      <h3>CRM Senior Specialist</h3>
+      <div class="job-company"><a href="https://www.samsung.com/it/" target="_blank">Samsung Italia <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Developed and managed CRM programs across all business units for the Italian subsidiary of Samsung. Handled customer database operations, direct email marketing and social media communication. Collaborated with internal teams and external partners to streamline CRM workflows.</p>
+      <div class="job-tags"><span class="job-tag">CRM</span><span class="job-tag">Email</span></div>
+    </div>
+    <div class="job-loc">Milano<br>Italy</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">08</div>
+    <div class="job-period">2009 — 2010</div>
+    <div class="job-main">
+      <h3>Digital Account Executive</h3>
+      <div class="job-company"><a href="https://www.leoburnett.it/" target="_blank">Leo Burnett Italia <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Worked on global digital communication projects for Marlboro (Philip Morris International). Managed three international platforms, coordinating content production, digital asset delivery and cross-market rollout. Designed wireframes and supervised content workflows across digital channels.</p>
+      <div class="job-tags"><span class="job-tag">Agency</span><span class="job-tag">Global</span></div>
+    </div>
+    <div class="job-loc">Milano<br>Italy</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">09</div>
+    <div class="job-period">2007 — 2009</div>
+    <div class="job-main">
+      <h3>Web Marketing Specialist</h3>
+      <div class="job-company"><a href="https://www.ducati.com/ww/en/home" target="_blank">Ducati <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Oversaw web content management for Ducati.com, focusing on product-related digital assets, email marketing campaigns and user database maintenance. Edited and published content across websites and newsletters, ensuring consistency and alignment with brand and product launches.</p>
+      <div class="job-tags"><span class="job-tag">Automotive</span><span class="job-tag">CMS</span></div>
+    </div>
+    <div class="job-loc">Bologna<br>Italy</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">10</div>
+    <div class="job-period">2006 — 2007</div>
+    <div class="job-main">
+      <h3>Web Content Editor</h3>
+      <div class="job-company"><a href="https://www.maserati.com/global/en" target="_blank">Maserati <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Contributed to the content management of Maserati's corporate website during a six-month internship. Supported the project management and content editing for the Maserati GranTurismo minisite, collaborating with design and marketing teams.</p>
+      <div class="job-tags"><span class="job-tag">Automotive</span></div>
+    </div>
+    <div class="job-loc">Modena<br>Italy</div>
+  </div>
+
+  <div class="job-row reveal">
+    <div class="job-num">11</div>
+    <div class="job-period">2005</div>
+    <div class="job-main">
+      <h3>Event &amp; PR Assistant</h3>
+      <div class="job-company"><a href="https://www.motoguzzi.com/en_EN/" target="_blank">Moto Guzzi · Piaggio Group <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <p class="job-desc">Internship completed in parallel with academic research for my graduation thesis. Supported the organisation and promotion of the "Giornate Mondiali Guzzi 2005" — the world's largest Moto Guzzi event — collaborating with the PR team on logistics, communication and public engagement.</p>
+      <div class="job-tags"><span class="job-tag">Events</span><span class="job-tag">PR</span></div>
+    </div>
+    <div class="job-loc">Mandello<br>Italy</div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 03 · Selected work</div>
+    <h2 class="sh-title">Featured <em>projects</em>.</h2>
+    <div class="sh-meta">06 items<br>2011 — Ongoing</div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">01<sup>/06</sup></span><span class="pl-tag">Ecosystem</span></div>
+      <div class="project-title-wrap"><h3>DeepCloud <em>ecosystem</em></h3></div>
+      <div class="project-year">2022 — Ongoing<br>Lugano</div>
+    </div>
+    <div class="project-gallery" data-slides="3">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 01</div><div class="ph-num">DeepCloud</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 02</div><div class="ph-num">DeepBox · DeepSign</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 03</div><div class="ph-num">Architecture</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 03</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">Building a cohesive digital presence around a Swiss cloud brand and its suite of AI-powered products — from architecture to execution.</p>
+        <p class="project-desc">As part of a long-term strategic initiative, I led the creation of <strong>DeepCloud's marketing ecosystem</strong> from the ground up — defining the architecture, designing interconnected websites, and building a consistent presence around the brand and its product suite. Working closely with the web-app engineering team, we ensured tight alignment between the site and ongoing product developments. The result is a consistent, high-performing digital presence with strong and sustained growth in traffic and conversions.</p>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Head of Marketing · Strategist</div></div>
+        <div class="spec-row"><div class="spec-label">Stack</div><div class="spec-value">WordPress · mailXpert</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://www.deepcloud.swiss/en/" target="_blank"><span>DeepCloud</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a><a href="https://www.deepsign.swiss/en/" target="_blank"><span>DeepSign</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">02<sup>/06</sup></span><span class="pl-tag">Campaign</span></div>
+      <div class="project-title-wrap"><h3>Digital <em>sovereignty</em></h3></div>
+      <div class="project-year">2025<br>Switzerland</div>
+    </div>
+    <div class="project-gallery" data-slides="3">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 01</div><div class="ph-num">NZZ Campaign</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 02</div><div class="ph-num">Netzwoche</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 03</div><div class="ph-num">Landing page</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 03</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">Positioning DeepCloud as the Swiss-made alternative to global big tech for organisations that care about data security and independence.</p>
+        <p class="project-desc">With digital sovereignty becoming a key issue in Europe, DeepCloud launched a high-impact campaign across major platforms like <strong>NZZ.ch, Netzwoche and Inside Paradeplatz</strong>, reaching millions in Switzerland and beyond. As Head of Marketing and digital strategist, I originated the concept and led its strategic execution — defining messaging, overseeing media planning and working closely with editorial partners. The campaign drove a measurable increase in brand awareness and helped establish DeepCloud as a credible leader in Swiss IT.</p>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Concept · Strategy</div></div>
+        <div class="spec-row"><div class="spec-label">Channels</div><div class="spec-value">Editorial · Programmatic · Landing</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://landing.deepcloud.swiss/en/security/" target="_blank"><span>Landing</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a><a href="https://www.netzwoche.ch/news/2025-05-19/warum-ihre-daten-besser-in-der-schweiz-bleiben-sollten" target="_blank"><span>Media</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">03<sup>/06</sup></span><span class="pl-tag">SaaS · PWA</span></div>
+      <div class="project-title-wrap"><h3>Cloud <em>Pens</em></h3></div>
+      <div class="project-year">2019 — 2021<br>Lugano</div>
+    </div>
+    <div class="project-gallery" data-slides="4">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 01</div><div class="ph-num">Cloud Pens</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 02</div><div class="ph-num">QR Code</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 03</div><div class="ph-num">UX Design</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 04</div><div class="ph-num">Mobile UI</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 04</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">The progressive web app that lets brands measure the performance of their haptic advertising, update their messaging, and retarget their audience.</p>
+        <p class="project-desc">Cloud Pens by Prodir is the PWA made to enable brands to measure their haptic advertising performance, keep messaging up-to-date and retarget their audience. With a custom dynamic QR Code, each pen connects to a campaign mobile landing page engineered for conversion. I imagined Cloud Pens as a product digitalisation model to be marketed as a <strong>SaaS</strong>. When I proposed it to the Prodir board I was immediately given the chance to develop it and shape the corporate project team. I designed the overall web-app UX and project-managed the development of both skin and code.</p>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Head of Marketing · UX Lead</div></div>
+        <div class="spec-row"><div class="spec-label">Stack</div><div class="spec-value">Custom PWA · Laravel</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://www.prodir.com/en/pens/cloud-pens/overview" target="_blank"><span>Cloud Pens</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a><a href="https://open.prodir.com/en/2021/05/writing-instruments-in-the-clouds/" target="_blank"><span>Interview</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">04<sup>/06</sup></span><span class="pl-tag">Platform</span></div>
+      <div class="project-title-wrap"><h3>Prodir <em>.com</em></h3></div>
+      <div class="project-year">2019 — 2021<br>Lugano</div>
+    </div>
+    <div class="project-gallery" data-slides="3">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 01</div><div class="ph-num">Prodir.com</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 02</div><div class="ph-num">Configurator</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 03</div><div class="ph-num">Product detail</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 03</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">Replacing an iconic print catalogue with a seamless, high-end web experience — the end-to-end redesign of Prodir's flagship platform.</p>
+        <p class="project-desc">As part of Prodir's digital transformation, I led the development of the new <strong>Prodir.com</strong> platform, designed to replace the company's iconic print catalogue. I oversaw the project end-to-end: content architecture, team coordination, UX best practices and budget. The new platform introduced optimised search, interactive video content and a product configurator. Despite pandemic-related challenges, SEO and UX improvements led to a performance increase of <strong>up to +18%</strong> in key digital KPIs.</p>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Project Lead · Strategist</div></div>
+        <div class="spec-row"><div class="spec-label">Stack</div><div class="spec-value">Drupal</div></div>
+        <div class="spec-row"><div class="spec-label">Result</div><div class="spec-value">Up to +18% KPI uplift</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://www.prodir.com" target="_blank"><span>Prodir.com</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a><a href="https://open.prodir.com/en/2021/03/how-much-does-a-catalogue-weigh/" target="_blank"><span>Goodbye catalogue</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">05<sup>/06</sup></span><span class="pl-tag">Publication</span></div>
+      <div class="project-title-wrap"><h3>Open <em>magazine</em></h3></div>
+      <div class="project-year">2017 — 2021<br>Lugano</div>
+    </div>
+    <div class="project-gallery" data-slides="3">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 01</div><div class="ph-num">Open Magazine</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 02</div><div class="ph-num">Editorial layout</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 03</div><div class="ph-num">Print edition</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 03</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">Design, communication and sustainability — redesigning Prodir's editorial voice for the digital age, both online and in print.</p>
+        <p class="project-desc">I led the redesign and digital content strategy of <strong>Open</strong>, Prodir's digital publication and biannual magazine covering design, communication and sustainability. I coordinated the project team and oversaw strategic planning, editorial workflow and stakeholder alignment. As a result of the new strategy and SEO enhancements, Open reached <strong>13th place among Swiss blogs</strong> (Feedspot) and achieved KPI growth up to +25%.</p>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Editorial Lead</div></div>
+        <div class="spec-row"><div class="spec-label">Stack</div><div class="spec-value">WordPress</div></div>
+        <div class="spec-row"><div class="spec-label">Result</div><div class="spec-value">Top 13 CH · +25% KPIs</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://open.prodir.com" target="_blank"><span>Open magazine</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row reveal">
+    <div class="project-header">
+      <div class="project-label"><span class="pl-num">06<sup>/06</sup></span><span class="pl-tag">Global</span></div>
+      <div class="project-title-wrap"><h3>Leica <em>Geosystems</em></h3></div>
+      <div class="project-year">2018 — 2019<br>Zug</div>
+    </div>
+    <div class="project-gallery" data-slides="3">
+      <div class="gallery-track">
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 01</div><div class="ph-num">Leica Geosystems</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 02</div><div class="ph-num">Laser scanners</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 03</div><div class="ph-num">UAV systems</div><div class="ph-cap">Image placeholder</div></div></div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
+        <div class="gallery-dots"></div>
+        <span class="gallery-counter">01 / 03</span>
+        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
+      </div>
+    </div>
+    <div class="project-content">
+      <div class="project-text">
+        <p class="project-lead">Launching the web presence of laser scanners and UAV systems worldwide for a global leader in spatial measurement technology.</p>
+        <p class="project-desc">At <strong>Leica Geosystems</strong> — a global leader in spatial measurement and part of Hexagon AB — I managed the web launch of key surveying products, including laser scanners and UAV systems. I coordinated the web development team, designed wireframes and supervised content creation to ensure a seamless user experience aligned with product positioning.</p>
+        <div class="project-quote">"I had the pleasure of working with Andrea for one year within the Hexagon group. We achieved so much in one year through his hard work and dedication. Andrea's ability to handle multiple projects made a dramatic increase in the productivity level of our company."<strong>Michelle Byrne · Senior Marketing Communication Manager · Leica Geosystems</strong></div>
+      </div>
+      <div class="project-specs">
+        <div class="spec-row"><div class="spec-label">Role</div><div class="spec-value">Digital Project Manager</div></div>
+        <div class="spec-row"><div class="spec-label">Stack</div><div class="spec-value">Sitecore</div></div>
+        <div class="spec-row"><div class="spec-label">Links</div><div class="spec-links"><a href="https://leica-geosystems.com/products/laser-scanners" target="_blank"><span>Scanners</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a><a href="https://www.ad-diction.me/single-post/2019/01/11/the-leica-brand-beyond-the-lens" target="_blank"><span>Brand essay</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 04 · Education</div>
+    <h2 class="sh-title">A record of <em>learning</em>.</h2>
+    <div class="sh-meta">04 programmes<br>2006 — 2024</div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-item reveal">
+      <div class="edu-year-big">2024</div>
+      <div class="edu-school">Cornell University, New York</div>
+      <p class="edu-desc">Completed the "Marketing AI" advanced certificate program from Cornell University.</p>
+      <div class="edu-links"><a class="edu-link" href="https://drive.google.com/file/d/1D9tjHV88B90jP7iEMqEM5jPFKatK8kO5/view?usp=sharing" target="_blank"><span>Certificate</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+    </div>
+    <div class="edu-item reveal">
+      <div class="edu-year-big">2018</div>
+      <div class="edu-school">University of California, San Diego</div>
+      <p class="edu-desc">Completed the "UX Design" online course from the University of California.</p>
+      <div class="edu-links"><a class="edu-link" href="https://www.coursera.org/account/accomplishments/certificate/7GEARNHEZTY3" target="_blank"><span>Certificate</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+    </div>
+    <div class="edu-item reveal">
+      <div class="edu-year-big">2014</div>
+      <div class="edu-school">SUPSI, Lugano</div>
+      <p class="edu-desc">Completed the "E-commerce Management" classroom course from Scuola Universitaria Professionale della Svizzera Italiana.</p>
+      <div class="edu-links"><a class="edu-link" href="https://drive.google.com/open?id=1qwLH2HXdOLLHzCbXyPNYWFvCKigaxfKo" target="_blank"><span>Certificate</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+    </div>
+    <div class="edu-item wide reveal">
+      <div class="edu-year-big">2006</div>
+      <div class="edu-school">Università degli Studi di Milano</div>
+      <p class="edu-desc">Graduated in Communication Sciences with a graduation thesis on Moto Guzzi's branding.</p>
+      <div class="edu-links">
+        <a class="edu-link" href="https://www.andreabogoni.me/s/tesi-laurea-andrea-bogoni-2005.pdf" target="_blank"><span>Thesis</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a>
+        <a class="edu-link" href="https://drive.google.com/open?id=1-1yR__zZ30dd4-jxaoeMIAba3IhRURPd" target="_blank"><span>Degree</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 05 · Toolbox</div>
+    <h2 class="sh-title">Tech <em>skills</em>.</h2>
+    <div class="sh-meta">Working proficiency<br>and expertise</div>
+  </div>
+  <div class="skills-matrix">
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">01</span><h4>CMS &amp; Content</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>WordPress</span><span class="dot"></span></li>
+        <li class="pro"><span>Drupal</span><span class="dot"></span></li>
+        <li class="pro"><span>Sitecore</span><span class="dot"></span></li>
+        <li class="pro"><span>Squarespace</span><span class="dot"></span></li>
+        <li class="pro"><span>ChatGPT workflows</span><span class="dot"></span></li>
+        <li><span>Typo3</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">02</span><h4>Marketing Automation</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>Mailchimp</span><span class="dot"></span></li>
+        <li class="pro"><span>mailXpert</span><span class="dot"></span></li>
+        <li class="pro"><span>Oracle Eloqua</span><span class="dot"></span></li>
+        <li><span>MagNews</span><span class="dot"></span></li>
+        <li><span>ContactLab</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">03</span><h4>Analytics &amp; SEO</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>Google Analytics</span><span class="dot"></span></li>
+        <li class="pro"><span>Matomo</span><span class="dot"></span></li>
+        <li class="pro"><span>Google AdWords</span><span class="dot"></span></li>
+        <li><span>Looker Studio</span><span class="dot"></span></li>
+        <li><span>Power BI</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">04</span><h4>UX &amp; Design</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>Figma</span><span class="dot"></span></li>
+        <li class="pro"><span>Balsamiq</span><span class="dot"></span></li>
+        <li><span>UXPin</span><span class="dot"></span></li>
+        <li><span>Miro</span><span class="dot"></span></li>
+        <li><span>Adobe Photoshop</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">05</span><h4>Project Ops</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>MS Planner</span><span class="dot"></span></li>
+        <li class="pro"><span>Trello</span><span class="dot"></span></li>
+        <li class="pro"><span>Jira</span><span class="dot"></span></li>
+        <li><span>Smartsheet</span><span class="dot"></span></li>
+        <li><span>Monday</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">06</span><h4>Social &amp; ADS</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>Meta ADS</span><span class="dot"></span></li>
+        <li class="pro"><span>LinkedIn ADS</span><span class="dot"></span></li>
+        <li><span>LinkedIn Sales Navigator</span><span class="dot"></span></li>
+        <li><span>Hootsuite</span><span class="dot"></span></li>
+        <li><span>Buffer</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">07</span><h4>CRM &amp; Data</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>SAP CRM</span><span class="dot"></span></li>
+        <li class="pro"><span>Salesforce</span><span class="dot"></span></li>
+        <li class="pro"><span>Microsoft 365</span><span class="dot"></span></li>
+        <li><span>Oracle Siebel</span><span class="dot"></span></li>
+        <li><span>HTML · CSS · XML</span><span class="dot"></span></li>
+      </ul>
+    </div>
+    <div class="skill-block reveal">
+      <div class="skill-header"><span class="sk-num">08</span><h4>Languages</h4></div>
+      <ul class="skill-list">
+        <li class="pro"><span>Italian — Native</span><span class="dot"></span></li>
+        <li class="pro"><span>English — Fluent C1</span><div class="right"><a href="https://www.efset.org/cert/5wceno" target="_blank">EF SET</a><span class="dot"></span></div></li>
+        <li><span>Spanish — Working</span><span class="dot"></span></li>
+        <li><span>French — Basic</span><span class="dot"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="profile">
+  <div class="section-header">
+    <div class="sh-num"><span class="fluo">§</span> 06 · Profile</div>
+    <h2 class="sh-title">How I <em>work</em>.</h2>
+    <div class="sh-meta">Personal statement<br>&amp; contact</div>
+  </div>
+  <div class="profile-body">
+    <div class="profile-statements">
+      <div class="profile-statement reveal"><div class="ps-num">01</div><p class="ps-text">Trustworthy and empathetic <em>team leader</em> with experience in managing cross-functional teams and delivering complex digital projects.</p></div>
+      <div class="profile-statement reveal"><div class="ps-num">02</div><p class="ps-text">Strong expertise in <em>digital marketing strategy</em> — content management, UI prototyping, CRM, marketing automation, social media and analytics.</p></div>
+      <div class="profile-statement reveal"><div class="ps-num">03</div><p class="ps-text">Advanced use of <em>generative AI</em> tools for content automation and optimisation — both for search engines and LLM-driven environments.</p></div>
+      <div class="profile-statement reveal"><div class="ps-num">04</div><p class="ps-text">Native <em>Italian</em>, fluent in <em>English</em>, with working knowledge of <em>Spanish</em> and basic <em>French</em>.</p></div>
+      <div class="profile-statement reveal">
+        <div class="ps-num">05</div>
+        <div>
+          <p class="ps-text">Father of two. Passionate about <em>technology</em>, <span class="music-trigger" onclick="toggleMusic()" id="musicTrigger">music</span>, industrial design, classic cars, motorcycles — and swimming.</p>
+          <div class="music-panel" id="musicPanel">
+            <div class="music-panel-header">
+              <span class="mp-title">Soundtrack · Currently on rotation</span>
+              <button class="music-panel-close" onclick="toggleMusic()">Close ×</button>
+            </div>
+            <div class="music-tracks">
+              <a class="music-card" href="https://open.spotify.com/track/3Cwhf9hf89L8qIRy0T6GFv" target="_blank" rel="noopener">
+                <span class="mc-num">01</span>
+                <span class="mc-info">
+                  <span class="mc-title">So What</span>
+                  <span class="mc-meta"><span class="artist">Miles Davis</span> · Kind of Blue · 1959</span>
+                </span>
+                <span class="mc-play"><span class="play-icon"></span><span class="label">Play</span></span>
+              </a>
+              <a class="music-card" href="https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ" target="_blank" rel="noopener">
+                <span class="mc-num">02</span>
+                <span class="mc-info">
+                  <span class="mc-title">The Less I Know The Better</span>
+                  <span class="mc-meta"><span class="artist">Tame Impala</span> · Currents · 2015</span>
+                </span>
+                <span class="mc-play"><span class="play-icon"></span><span class="label">Play</span></span>
+              </a>
+              <a class="music-card" href="https://open.spotify.com/track/3A9vIxzGBjEfqmDK7H9exS" target="_blank" rel="noopener">
+                <span class="mc-num">03</span>
+                <span class="mc-info">
+                  <span class="mc-title">Pyramid Song</span>
+                  <span class="mc-meta"><span class="artist">Radiohead</span> · Amnesiac · 2001</span>
+                </span>
+                <span class="mc-play"><span class="play-icon"></span><span class="label">Play</span></span>
+              </a>
+              <a class="music-card" href="https://open.spotify.com/track/2TnBnVxtiC447DE563RL6a" target="_blank" rel="noopener">
+                <span class="mc-num">04</span>
+                <span class="mc-info">
+                  <span class="mc-title">Ambulance</span>
+                  <span class="mc-meta"><span class="artist">Blur</span> · Think Tank · 2003</span>
+                </span>
+                <span class="mc-play"><span class="play-icon"></span><span class="label">Play</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-card reveal">
+      <div class="pc-block"><div class="pc-label">Phone</div><a class="pc-value" href="tel:+41765750583">+41 76 575 05 83</a></div>
+      <div class="pc-block"><div class="pc-label">Email</div><a class="pc-value email" href="mailto:andreabogoni@proton.me">andreabogoni@proton.me</a></div>
+      <div class="pc-block"><div class="pc-label">Location</div><div class="pc-value">Lugano, Switzerland</div></div>
+      <div class="pc-block"><div class="pc-label">LinkedIn</div><a class="pc-value" href="https://www.linkedin.com/in/andreabogoni/" target="_blank">linkedin.com/in/andreabogoni <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+      <div class="pc-block"><div class="pc-label">Blog</div><a class="pc-value" href="https://www.ad-diction.me/" target="_blank">ad-diction.me <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block">
+  <div class="quote-inner">
+    <span class="q-mark">“</span>
+    <p class="quote-text">You have to play a <em>long&nbsp;time</em> to be able to play like <em>yourself</em>.</p>
+    <div class="quote-cite">Miles Davis</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="f-copy">© 2026 Andrea Bogoni</div>
+    <div class="f-contact"><a href="tel:+41765750583">+41 76 575 05 83</a> &nbsp;·&nbsp; <a href="mailto:andreabogoni@proton.me">andreabogoni@proton.me</a></div>
+    <div class="f-version">Lugano · Switzerland</div>
+    <div class="f-top"><a href="#home"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="8" y1="13" x2="8" y2="3"/><polyline points="3,8 8,3 13,8"/></svg></span> Back to top</a></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function updateClock(){
+  const d = new Date();
+  const opts = {timeZone:'Europe/Zurich',hour:'2-digit',minute:'2-digit',hour12:false};
+  const t = d.toLocaleTimeString('en-GB',opts);
+  const el = document.getElementById('clock');
+  if(el) el.textContent = t + ' CET';
+}
+updateClock();
+setInterval(updateClock,30000);
+
+document.querySelectorAll('#navLinks a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+
+// GALLERY
+document.querySelectorAll('.project-gallery').forEach(gallery => {
+  const track = gallery.querySelector('.gallery-track');
+  const slides = gallery.querySelectorAll('.gallery-slide');
+  const total = slides.length;
+  const prevBtn = gallery.querySelector('.gallery-arrow.prev');
+  const nextBtn = gallery.querySelector('.gallery-arrow.next');
+  const dotsWrap = gallery.querySelector('.gallery-dots');
+  const counter = gallery.querySelector('.gallery-counter');
+  let current = 0;
+
+  for(let i=0;i<total;i++){
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot' + (i===0 ? ' active' : '');
+    dot.setAttribute('aria-label','Go to slide ' + (i+1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function update(){
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i) => d.classList.toggle('active', i === current));
+    if(counter) counter.textContent = pad(current+1) + ' / ' + pad(total);
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  function goTo(i){
+    current = Math.max(0, Math.min(total-1, i));
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current-1));
+  nextBtn.addEventListener('click', () => goTo(current+1));
+
+  update();
+});
+
+// MUSIC PANEL
+function toggleMusic(){
+  const panel = document.getElementById('musicPanel');
+  const trigger = document.getElementById('musicTrigger');
+  if(panel.classList.contains('open')){
+    panel.classList.remove('open');
+    trigger.classList.remove('active');
+  } else {
+    panel.classList.add('open');
+    trigger.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>
