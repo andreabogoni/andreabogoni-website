@@ -54,15 +54,18 @@ img{max-width:100%;display:block}
 .tb-loc{grid-column:4/7}
 .tb-time{grid-column:7/10;text-align:center}
 .tb-status{grid-column:10/13;text-align:right}
-.tb-status a{background:var(--fluo);color:var(--bg);padding:4px 10px;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:filter .2s,letter-spacing .2s}
-.tb-status a:hover{filter:brightness(1.1);letter-spacing:0.1em}
+.tb-status a{background:var(--fluo);color:var(--bg);padding:4px 10px;font-weight:500;display:inline-flex;align-items:center;gap:6px;position:relative;overflow:hidden;transition:filter .2s}
+.tb-status a span.txt{position:relative;z-index:2}
+.tb-status a::before{content:'';position:absolute;top:0;left:-100%;width:70%;height:100%;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,0) 25%,rgba(255,255,255,0.6) 50%,rgba(255,255,255,0) 75%,transparent 100%);transition:left .7s cubic-bezier(0.4,0,0.2,1);pointer-events:none;z-index:1}
+.tb-status a:hover::before{left:130%}
+.tb-status a:hover{filter:brightness(1.08) saturate(1.1)}
 
 /* ===== NAV ===== */
 .nav{position:fixed;top:42px;left:0;right:0;z-index:99;padding:16px 32px;display:grid;grid-template-columns:repeat(12,1fr);background:rgba(10,11,10,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);align-items:center}
 .nav-brand{grid-column:1/4;padding:0 12px;font-weight:500;font-size:15px;letter-spacing:-0.01em;color:var(--ink)}
 .nav-brand strong{font-weight:600}
 .nav-brand em{font-style:normal;color:var(--muted)}
-.nav-links{grid-column:4/13;display:flex;gap:30px;list-style:none;padding:0 12px;justify-content:flex-end;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.nav-links{grid-column:4/13;display:flex;gap:30px;list-style:none;padding:0 12px;justify-content:flex-end;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
 .nav-links a{position:relative;padding:2px 0;transition:color .2s;color:var(--ink-soft)}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--fluo);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(0.77,0,0.175,1)}
@@ -118,7 +121,7 @@ img{max-width:100%;display:block}
 
 .portrait-meta{grid-column:8/13;padding:60px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
 .portrait-quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,2.4vw,34px);font-weight:400;line-height:1.3;letter-spacing:-0.02em;color:var(--ink)}
-.portrait-quote em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+.portrait-quote em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.04em 0.14em;font-weight:500;line-height:1.1;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .portrait-facts{display:grid;border-top:1px solid var(--rule)}
 .portrait-facts .fact{padding:20px 0;border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:baseline}
 .portrait-facts .fact:last-child{border-bottom:none}
@@ -131,12 +134,12 @@ img{max-width:100%;display:block}
 .section-header .sh-num{grid-column:1/4;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
 .section-header .sh-num .fluo{color:var(--fluo)}
 .section-header .sh-title{grid-column:4/11;padding:0 12px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(32px,4.5vw,64px);line-height:1.02;letter-spacing:-0.035em;color:var(--ink)}
-.section-header .sh-title em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600}
+.section-header .sh-title em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600;line-height:0.95;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .section-header .sh-meta{grid-column:11/13;padding:0 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);line-height:1.5}
 
 .about-body{display:grid;grid-template-columns:repeat(12,1fr);padding:80px 0}
 .about-lead{grid-column:2/12;padding:0 12px;font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3vw,44px);font-weight:400;line-height:1.3;letter-spacing:-0.025em;margin-bottom:80px;color:var(--ink)}
-.about-lead em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+.about-lead em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.04em 0.14em;font-weight:500;line-height:1.1;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .about-detail-grid{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid var(--rule)}
 .about-cell{grid-column:span 4;padding:36px 16px;border-right:1px solid var(--rule)}
 .about-cell:last-child{border-right:none}
@@ -174,7 +177,7 @@ img{max-width:100%;display:block}
 .pl-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;background:var(--fluo);color:var(--bg);font-weight:500}
 .project-title-wrap{grid-column:4/11;padding:0 12px}
 .project-title-wrap h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,5vw,80px);font-weight:500;line-height:0.95;letter-spacing:-0.04em;color:var(--ink);padding-bottom:0.08em}
-.project-title-wrap h3 em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600}
+.project-title-wrap h3 em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.1em;font-weight:600;line-height:0.92;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .project-year{grid-column:11/13;padding:0 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);line-height:1.6}
 
 /* GALLERY — slot prepared, slides container */
@@ -260,7 +263,7 @@ img{max-width:100%;display:block}
 .profile-statement:last-child{border-bottom:1px solid var(--rule)}
 .ps-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--fluo);padding-top:10px}
 .ps-text{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,2.2vw,30px);font-weight:400;line-height:1.4;letter-spacing:-0.02em;color:var(--ink)}
-.ps-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0 0.08em;font-weight:500}
+.ps-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.04em 0.14em;font-weight:500;line-height:1.1;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
 /* MUSIC EASTER EGG */
 .music-trigger{font-style:normal;color:var(--fluo);border-bottom:1px dashed var(--fluo-deep);cursor:pointer;transition:all .2s;padding:0 2px;font-weight:500;display:inline-block}
@@ -307,9 +310,8 @@ img{max-width:100%;display:block}
 .pc-block:first-child{padding-top:0}
 .pc-block:last-child{border-bottom:none}
 .pc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.pc-value{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.015em;transition:all .2s;display:inline-block;color:var(--ink);line-height:1.25;word-break:break-word}
-.pc-value.small{font-size:17px}
-.pc-value.email{font-size:clamp(14px,1.4vw,18px);letter-spacing:-0.01em;word-break:break-all}
+.pc-value{font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,1.4vw,18px);font-weight:500;letter-spacing:-0.01em;transition:all .2s;display:inline-block;color:var(--ink);line-height:1.3;word-break:break-word}
+.pc-value.email{word-break:break-all}
 .pc-value:hover{background:var(--fluo);color:var(--bg);padding:0 4px;margin:0 -4px}
 
 /* QUOTE */
@@ -318,7 +320,7 @@ img{max-width:100%;display:block}
 .quote-inner{grid-column:2/12;padding:0 12px}
 .quote-inner .q-mark{font-family:'Space Grotesk',sans-serif;font-size:160px;line-height:1;color:var(--fluo);font-weight:600;display:block;text-shadow:0 0 30px rgba(214,255,43,0.3);margin-bottom:10px}
 .quote-text{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,5vw,72px);font-weight:400;line-height:1.3;letter-spacing:-0.035em;margin-bottom:40px;color:var(--ink);padding-bottom:0.2em}
-.quote-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.08em 0.12em;font-weight:500;display:inline-block;line-height:1;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.quote-text em{font-style:normal;background:var(--fluo);color:var(--bg);padding:0.04em 0.14em;font-weight:500;line-height:1.05;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .quote-cite{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
 
 /* FOOTER */
@@ -428,9 +430,8 @@ img{max-width:100%;display:block}
   .tb-id{font-size:9px}
   .tb-status a{padding:4px 8px;font-size:9px}
   .hero-title{font-size:48px;line-height:1.04}
-  .pc-value{font-size:18px}
-  .pc-value.email{font-size:14px}
-  .pc-value.small{font-size:15px}
+  .pc-value{font-size:15px}
+  .pc-value.email{font-size:13px}
   .project-title-wrap h3{font-size:30px}
   .pl-num{font-size:40px}
   .project-lead{font-size:20px}
@@ -457,7 +458,7 @@ img{max-width:100%;display:block}
   <div class="tb-id">Portfolio · 2026</div>
   <div class="tb-loc">Lugano · Switzerland</div>
   <div class="tb-time" id="clock">— : — CET</div>
-  <div class="tb-status"><a href="#profile">● Get in touch</a></div>
+  <div class="tb-status"><a href="#profile"><span class="txt">● Get in touch</span></a></div>
 </div>
 
 <nav class="nav">
@@ -477,7 +478,7 @@ img{max-width:100%;display:block}
 <section class="hero container" id="home">
   <div class="hero-meta-col">
     <div class="meta-block"><div class="meta-label">Role</div><div class="meta-value">Chief Marketing Officer</div></div>
-    <div class="meta-block"><div class="meta-label">Organisation</div><div class="meta-value">DeepCloud · Abacus Research</div></div>
+    <div class="meta-block"><div class="meta-label">Organisation</div><div class="meta-value">DeepCloud</div></div>
     <div class="meta-block"><div class="meta-label">Discipline</div><div class="meta-value">Brand · Digital · AI Marketing · Go-to-market</div></div>
     <div class="meta-block"><div class="meta-label">Since</div><div class="meta-value">2022 — Active</div></div>
   </div>
@@ -619,7 +620,7 @@ img{max-width:100%;display:block}
       <h3>Digital Marketing Manager</h3>
       <div class="job-company"><a href="https://www.prodir.com/en" target="_blank">Prodir <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
       <p class="job-desc">Led digital marketing activities for the Swiss manufacturer of high-end promotional writing instruments. Oversaw all digital touchpoints including websites, online campaigns, marketing automation, blog and social media. Managed cross-functional projects from concept to delivery.</p>
-      <div class="job-tags"><span class="job-tag">Manager</span><span class="job-tag">Automation</span></div>
+      <div class="job-tags"><span class="job-tag">Manager</span><span class="job-tag">Digital</span><span class="job-tag">Automation</span></div>
     </div>
     <div class="job-loc">Lugano<br>Switzerland</div>
   </div>
@@ -631,7 +632,7 @@ img{max-width:100%;display:block}
       <h3>CRM Senior Specialist</h3>
       <div class="job-company"><a href="https://www.samsung.com/it/" target="_blank">Samsung Italia <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
       <p class="job-desc">Developed and managed CRM programs across all business units for the Italian subsidiary of Samsung. Handled customer database operations, direct email marketing and social media communication. Collaborated with internal teams and external partners to streamline CRM workflows.</p>
-      <div class="job-tags"><span class="job-tag">CRM</span><span class="job-tag">Email</span></div>
+      <div class="job-tags"><span class="job-tag">CRM</span><span class="job-tag">Email</span><span class="job-tag">Social</span></div>
     </div>
     <div class="job-loc">Milano<br>Italy</div>
   </div>
@@ -643,7 +644,7 @@ img{max-width:100%;display:block}
       <h3>Digital Account Executive</h3>
       <div class="job-company"><a href="https://www.leoburnett.it/" target="_blank">Leo Burnett Italia <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
       <p class="job-desc">Worked on global digital communication projects for Marlboro (Philip Morris International). Managed three international platforms, coordinating content production, digital asset delivery and cross-market rollout. Designed wireframes and supervised content workflows across digital channels.</p>
-      <div class="job-tags"><span class="job-tag">Agency</span><span class="job-tag">Global</span></div>
+      <div class="job-tags"><span class="job-tag">Agency</span><span class="job-tag">Global</span><span class="job-tag">Platforms</span></div>
     </div>
     <div class="job-loc">Milano<br>Italy</div>
   </div>
@@ -667,7 +668,7 @@ img{max-width:100%;display:block}
       <h3>Web Content Editor</h3>
       <div class="job-company"><a href="https://www.maserati.com/global/en" target="_blank">Maserati <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/></svg></span></a></div>
       <p class="job-desc">Contributed to the content management of Maserati's corporate website during a six-month internship. Supported the project management and content editing for the Maserati GranTurismo minisite, collaborating with design and marketing teams.</p>
-      <div class="job-tags"><span class="job-tag">Automotive</span></div>
+      <div class="job-tags"><span class="job-tag">Automotive</span><span class="job-tag">Website</span></div>
     </div>
     <div class="job-loc">Modena<br>Italy</div>
   </div>
@@ -1095,7 +1096,7 @@ img{max-width:100%;display:block}
 
 <footer class="footer">
   <div class="footer-grid">
-    <div class="f-copy">© 2027 Andrea Bogoni</div>
+    <div class="f-copy">© 2026 Andrea Bogoni</div>
     <div class="f-contact"><a href="tel:+41765750583">+41 76 575 05 83</a> &nbsp;·&nbsp; <a href="mailto:andreabogoni@proton.me">andreabogoni@proton.me</a></div>
     <div class="f-version">Lugano · Switzerland</div>
     <div class="f-top"><a href="#home"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="8" y1="13" x2="8" y2="3"/><polyline points="3,8 8,3 13,8"/></svg></span> Back to top</a></div>
