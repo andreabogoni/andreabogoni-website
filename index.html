@@ -182,6 +182,8 @@ img{max-width:100%;display:block}
 
 /* GALLERY — slot prepared, slides container */
 .project-gallery{position:relative;width:100%;aspect-ratio:16/8;overflow:hidden;background:var(--bg-3);border:1px solid var(--rule);margin-bottom:50px}
+.project-image{position:relative;width:100%;aspect-ratio:16/8;overflow:hidden;background:var(--bg);border:1px solid var(--rule);margin-bottom:50px}
+.project-image img{width:100%;height:100%;object-fit:contain;display:block}
 .gallery-track{display:flex;width:100%;height:100%;transition:transform .5s cubic-bezier(0.65,0,0.35,1)}
 .gallery-slide{flex:0 0 100%;width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 /* Placeholder elegante: gradient + numero + label */
@@ -703,16 +705,17 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>DeepCloud <em>ecosystem</em></h3></div>
       <div class="project-year">2022 — Ongoing<br>Lugano</div>
     </div>
-    <div class="project-gallery" data-slides="3">
+    <div class="project-gallery" data-slides="4">
       <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 01</div><div class="ph-num">DeepCloud</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 02</div><div class="ph-num">DeepBox · DeepSign</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 01 · Slide 03</div><div class="ph-num">Architecture</div><div class="ph-cap">Image placeholder</div></div></div>
+        <div class="gallery-slide"><img src="/01-deepcloud-01-event.webp" alt="DeepCloud at Swiss Software Festival" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/01-deepcloud-02-deepsign.webp" alt="DeepSign — Digital signatures" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/01-deepcloud-03-deepbox.webp" alt="DeepBox — Stop sending, start sharing" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/01-deepcloud-04-deepo.webp" alt="DeepO — Automated data input" loading="lazy"></div>
       </div>
       <div class="gallery-controls">
         <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
         <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 03</span>
+        <span class="gallery-counter">01 / 04</span>
         <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
       </div>
     </div>
@@ -735,19 +738,7 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>Digital <em>sovereignty</em></h3></div>
       <div class="project-year">2025<br>Switzerland</div>
     </div>
-    <div class="project-gallery" data-slides="3">
-      <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 01</div><div class="ph-num">NZZ Campaign</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 02</div><div class="ph-num">Netzwoche</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 02 · Slide 03</div><div class="ph-num">Landing page</div><div class="ph-cap">Image placeholder</div></div></div>
-      </div>
-      <div class="gallery-controls">
-        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
-        <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 03</span>
-        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
-      </div>
-    </div>
+    <div class="project-image"><img src="/02-digital-sovereignty-01.webp" alt="DeepCloud digital sovereignty campaign on NZZ" loading="lazy"></div>
     <div class="project-content">
       <div class="project-text">
         <p class="project-lead">Positioning DeepCloud as the Swiss-made alternative to global big tech for organisations that care about data security and independence.</p>
@@ -767,20 +758,7 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>Cloud <em>Pens</em></h3></div>
       <div class="project-year">2019 — 2021<br>Lugano</div>
     </div>
-    <div class="project-gallery" data-slides="4">
-      <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 01</div><div class="ph-num">Cloud Pens</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 02</div><div class="ph-num">QR Code</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 03</div><div class="ph-num">UX Design</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 03 · Slide 04</div><div class="ph-num">Mobile UI</div><div class="ph-cap">Image placeholder</div></div></div>
-      </div>
-      <div class="gallery-controls">
-        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
-        <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 04</span>
-        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
-      </div>
-    </div>
+    <div class="project-image"><img src="/03-cloud-pens-01.webp" alt="Cloud Pens by Prodir" loading="lazy"></div>
     <div class="project-content">
       <div class="project-text">
         <p class="project-lead">The progressive web app that lets brands measure the performance of their haptic advertising, update their messaging, and retarget their audience.</p>
@@ -800,19 +778,7 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>Prodir <em>.com</em></h3></div>
       <div class="project-year">2019 — 2021<br>Lugano</div>
     </div>
-    <div class="project-gallery" data-slides="3">
-      <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 01</div><div class="ph-num">Prodir.com</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 02</div><div class="ph-num">Configurator</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 04 · Slide 03</div><div class="ph-num">Product detail</div><div class="ph-cap">Image placeholder</div></div></div>
-      </div>
-      <div class="gallery-controls">
-        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
-        <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 03</span>
-        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
-      </div>
-    </div>
+    <div class="project-image"><img src="/04-prodir-com-01.webp" alt="Prodir.com platform" loading="lazy"></div>
     <div class="project-content">
       <div class="project-text">
         <p class="project-lead">Replacing an iconic print catalogue with a seamless, high-end web experience — the end-to-end redesign of Prodir's flagship platform.</p>
@@ -833,19 +799,7 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>Open <em>magazine</em></h3></div>
       <div class="project-year">2017 — 2021<br>Lugano</div>
     </div>
-    <div class="project-gallery" data-slides="3">
-      <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 01</div><div class="ph-num">Open Magazine</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 02</div><div class="ph-num">Editorial layout</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 05 · Slide 03</div><div class="ph-num">Print edition</div><div class="ph-cap">Image placeholder</div></div></div>
-      </div>
-      <div class="gallery-controls">
-        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
-        <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 03</span>
-        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
-      </div>
-    </div>
+    <div class="project-image"><img src="/05-open-magazine-01.webp" alt="Open magazine" loading="lazy"></div>
     <div class="project-content">
       <div class="project-text">
         <p class="project-lead">Design, communication and sustainability — redesigning Prodir's editorial voice for the digital age, both online and in print.</p>
@@ -866,19 +820,7 @@ img{max-width:100%;display:block}
       <div class="project-title-wrap"><h3>Leica <em>Geosystems</em></h3></div>
       <div class="project-year">2018 — 2019<br>Zug</div>
     </div>
-    <div class="project-gallery" data-slides="3">
-      <div class="gallery-track">
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 01</div><div class="ph-num">Leica Geosystems</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 02</div><div class="ph-num">Laser scanners</div><div class="ph-cap">Image placeholder</div></div></div>
-        <div class="gallery-slide placeholder"><div class="placeholder-meta"><div class="ph-label">Project 06 · Slide 03</div><div class="ph-num">UAV systems</div><div class="ph-cap">Image placeholder</div></div></div>
-      </div>
-      <div class="gallery-controls">
-        <button class="gallery-arrow prev" aria-label="Previous"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="13" y1="8" x2="3" y2="8"/><polyline points="8,13 3,8 8,3"/></svg></span></button>
-        <div class="gallery-dots"></div>
-        <span class="gallery-counter">01 / 03</span>
-        <button class="gallery-arrow next" aria-label="Next"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="8,3 13,8 8,13"/></svg></span></button>
-      </div>
-    </div>
+    <div class="project-image"><img src="/06-leica-geosystems-01.webp" alt="Leica Geosystems BLK ARC" loading="lazy"></div>
     <div class="project-content">
       <div class="project-text">
         <p class="project-lead">Launching the web presence of laser scanners and UAV systems worldwide for a global leader in spatial measurement technology.</p>
